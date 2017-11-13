@@ -1,0 +1,111 @@
+doctype html
+html(lang="fr")
+  head
+    meta(charset="utf-8")
+    |
+    title Titre de la page
+    |
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+    |
+    link(rel="stylesheet", href="./sources/css/style.css")
+
+  |
+  body
+    h1 BattleRoyale
+    form#formulaireConnection(action="/jeu", method="post")
+      .form-group
+        p choisir un Pseudo :
+        |
+        input(type="text", name="pseudo", value="")
+      |
+      .form-group
+        p
+          input(type="submit", value="Ok")
+    |
+    #avatar(style="display: none")
+      img#avatar1(src="./sources/images/avatar1.jpg", alt="avatar1")
+      |
+      img#avatar2(src="./sources/images/avatar2.jpg", alt="avatar2")
+      |
+      img#avatar3(src="./sources/images/avatar3.jpg", alt="avatar3")
+      |
+      img#avatar4(src="./sources/images/avatar4.jpg", alt="avatar4")
+      |
+      img#avatar5(src="./sources/images/avatar5.jpg", alt="avatar5")
+      |
+      img#avatar6(src="./sources/images/avatar6.jpg", alt="avatar6")
+      |
+      img#avatar7(src="./sources/images/avatar7.jpg", alt="avatar7")
+      |
+      img#avatar8(src="./sources/images/avatar8.jpg", alt="avatar8")
+    |
+    #arene(style="display : none; position : relative; padding-top : 50px")
+      .imgArene
+        img(src="./sources/images/imageMinArene1.jpg", alt="Arene 1", style="margin-right : 40px")
+        |
+        p.textArena Arena 1
+      |
+      .imgArene
+        img(src="./sources/images/imageMinArene2.jpg", alt="Arene 2", style="margin-right : 40px")
+        |
+        p.textArena Arena 2
+      |
+      .imgArene
+        img(src="./sources/images/imageMinArene3.jpg", alt="Arene 3", style="margin-right : 40px")
+        |
+        p.textArena Arena 3
+      |
+      .imgArene
+        img(src="./sources/images/imageMinArene4.jpg", alt="Arene 4", style="margin-right : 40px")
+        |
+        p.textArena Arena 4
+    |
+    #jeu
+      h2(style = "display : none")
+      .conteneur#joueur(style="display : none")
+        p
+        img
+        #scoreJoueur  
+      .conteneur#adversaire(style="display : none")
+        p
+        img
+        #scoreAdversaire
+      #imgArene(style="display : none")
+        img
+      #hint(style="display : none") 
+      #lienScore(style ="display : none") 
+      #imgHint(style="display : none")
+        img(src='./sources/images/jeupfcls.png')
+      #choixJoueur(style="display : none")
+        p
+          img(src="./sources/images/paper.min.png" class="paper")
+        p
+          img(src="./sources/images/lezard.min.png" class="lezard")
+        p
+          img(src="./sources/images/scisor.min.png" class="scisor")
+        p
+          img(src="./sources/images/spoke.min.png" class="spoke")
+        p
+          img(src="./sources/images/stone.min.png" class="rock")
+      #choixAdversaire(style="display : none")
+        p
+          img(src="./sources/images/paper.min.png" class="paper")
+        p
+          img(src="./sources/images/lezard.min.png" class="lezard")
+        p
+          img(src="./sources/images/scisor.min.png" class="scisor")
+        p
+          img(src="./sources/images/spoke.min.png" class="spoke")
+        p
+          img(src="./sources/images/stone.min.png" class="rock")
+      |
+      #info(style="display : none") 
+        En attente d'un autre joueur 
+      #tableauScore(style="display : none")
+    |  
+    script(src="/socket.io/socket.io.js")
+    script(src="./sources/vendor/jquery.min.js")
+    script(src="./sources/vendor/ui.js")
+    |
+    
+    //- script(src="./sources/vendor/ui.js")

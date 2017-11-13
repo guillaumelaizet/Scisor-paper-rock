@@ -1,0 +1,165 @@
+
+html{
+  padding : 0px;
+  margin : 0px;
+}
+body {
+  background: url('../images/background.jpg');
+  height: 100%;
+  text-align : center;
+}
+
+p, h1, h2, h3{
+  color : whitesmoke;
+}
+
+input[type=submit]{
+  color : black;
+}
+header{
+  width : 100%;
+  margin: 0px;
+  padding: 0px;
+  /*opacity: 0.5;*/
+}
+
+
+#arene img{
+  width : 200px;
+  height : 200px;
+}
+
+#avatar{
+  overflow: auto;
+  height : 100%;
+}
+ #avatar img{
+   margin-left : 30px;
+ }
+
+.checked {
+  width: 120px;
+  height: 120px;
+}
+
+form {
+  margin-bottom : 50px;
+  margin-top : 50px;
+}
+
+.imgArene{
+  float : left;
+}
+
+
+#imgArene img{
+  width : 900px;
+  height: 550px;
+}
+
+#joueur {
+  position: absolute;
+  left: 100px;
+  top : 100px;
+}
+
+#adversaire{
+  position : absolute;
+  top : 100px;
+  left : 1350px;
+}
+
+
+.conteneur img{
+  width : 100px;
+  height : 100px;
+}
+
+
+#choixJoueur {
+  position: absolute;
+  left: 250px;
+  top: 120px;
+}
+
+#choixAdversaire {
+  position: absolute;
+  left: 1180px;
+  top: 120px;
+}
+
+#choixAdversaire img {
+  transform : scaleX(-1);
+}
+
+
+#info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position : absolute;
+  font-size: 15px;
+  background : whitesmoke;
+  width : 500px;
+  height : 200px;
+  border-radius : 10px;
+  left : 500px;
+  top : 300px;
+}
+
+#whoWins {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position : absolute;
+  font-size: 15px;
+  background : whitesmoke;
+  width : 500px;
+  height : 200px;
+  border-radius : 10px;
+  left : 500px;
+  top : 300px;
+}
+
+#hint{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 10px;
+  color : whitesmoke;
+  left : 500px;
+  width: 50px;
+  height : 50px;
+  background: url('../images/hint.png');
+}
+
+#imgHint img{
+  position: absolute;
+  top: 200px;
+  left : 550px;
+  width: 400px;
+  height: 400px;
+}
+
+#lienScore {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 10px;
+  color : whitesmoke;
+  left : 1000px;
+  width: 50px;
+  height : 50px;
+  background: url('../images/score.png');
+}
+
+#tableauScore {
+  position: absolute;
+  left: 500px;
+  top : 200px;
+  height : 500px;
+  width : 500px;
+  background: whitesmoke;
+}

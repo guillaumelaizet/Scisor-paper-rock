@@ -1,0 +1,22 @@
+{
+  "name": "scisor-paper-rock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cards": "^0.1.1",
+    "express": "^4.16.1",
+    "express-session": "^1.15.6",
+    "mongodb": "^2.2.31",
+    "pug": "^2.0.0-rc.4",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "guillaumeLaizet",
+  "license": "ISC"
+}
