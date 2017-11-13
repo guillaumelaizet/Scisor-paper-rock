@@ -103,12 +103,12 @@ window.addEventListener('DOMContentLoaded', function(){
       $('h2').html('Bienvenue dans l\'' + room.name);
       $('h2').css('margin-bottom' , '50px');
       $('h3').html('Manche : ' + tour);
-      $('h2').css('margin-bottom' , '80px');
+      // $('h3').css({'margin-bottom' , '80px'})
       // console.log(room.name);
       $('#formulaireConnection').hide();
       $('#avatar').hide();
       $('#arene').hide();
-      $('h3').hide();
+      // $('h3').hide();
       $('#imgArene').html('<img src="./sources/images/image' + room.name.replace(' ','') + '.jpg" alt="' + room + '">');
       $('#imgArene').show();
       for(var i in room.users){
