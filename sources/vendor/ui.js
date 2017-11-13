@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', function(){
   }
   var submitted;
   var compte;
-  var tour = 0;
+  var tour = 1;
   var tourMax = 10;
   var scoreJoueur = 0;
   var scoreAdversaire = 0;
@@ -102,6 +102,8 @@ window.addEventListener('DOMContentLoaded', function(){
       console.log(room.users);
       $('h2').html('Bienvenue dans l\'' + room.name);
       $('h2').css('margin-bottom' , '50px');
+      $('h3').html('Manche : ' + tour);
+      $('h2').css('margin-bottom' , '80px');
       // console.log(room.name);
       $('#formulaireConnection').hide();
       $('#avatar').hide();
