@@ -86,9 +86,7 @@ io.on('connection', function(socket){
       replaceInArray(rooms,roomUser)
       roomUser.users.push(user);
       rooms.forEach(function(room){
-      //   console.log(room.users);
-      // console.log(room.info);
-      })
+      });
       socket.emit('logged',rooms);
 
       if(roomUser.info.length >1)
@@ -248,14 +246,11 @@ io.on('connection', function(socket){
       if(choice[i].id == socket.id){
         var score;
         var scoreTotal;
-        // console.log(choice[i]);
           var collection = db.get().collection('users');
           collection.find({pseudo : choice[i].pseudo}).toArray(function (err,data){
             console.log(data);
               score = data[0].scoreMeilleurePartie;
               scoreTotal = data[0].scoreCumule;
-              // console.log(score);
-              // console.log(scoreTotal);
 
           console.log(scoreTotal);
 
@@ -282,7 +277,6 @@ io.on('connection', function(socket){
       }
     }
     for(var i in players){
-      console.log(players[i]);
       if(players[i] == nomJoueur){
         delete players[i];
       }
@@ -301,8 +295,6 @@ io.on('connection', function(socket){
 function replaceInArray(array,item){
   var isExist = false;
   for( var i in array){
-    // console.log(array[i].name);
-    // console.log(item.name);
     if (array[i].name == item.name){
       isExist = true;
       return;

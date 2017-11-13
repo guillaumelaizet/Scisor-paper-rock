@@ -19,14 +19,11 @@ window.addEventListener('DOMContentLoaded', function(){
     users.push(player);
   });
 
-  // function init(){
   $('input[type=submit]').on('click', function(e){
     e.preventDefault();
-    // console.log(socket.io);
     var occuped = false;
     var pseudo = $('input[type=text]').val();
     var erreur = '<p>Vous devez rentrer votre pseudo pour continuer !</p>';
-    // console.log(users);
     users.forEach(function(username){
       if(username == pseudo){
         occuped = true;
@@ -51,8 +48,6 @@ window.addEventListener('DOMContentLoaded', function(){
 
     }
   });
-  // }
-  // init();
 
   $('#avatar img').on('click', function(){
     $(this).addClass('checked').removeClass('notChecked');
@@ -70,7 +65,6 @@ window.addEventListener('DOMContentLoaded', function(){
     userInfo.avatar = avatar;
     socket.emit('avatarChecked', avatar)
     socket.on('updateRoom', function(rooms){
-      console.log(rooms);
       for(var i in rooms){
         if(rooms[i].info.length > 1){
           var img = $('.imgArene img[alt="'+ rooms[i].name +'"]');
@@ -99,12 +93,8 @@ window.addEventListener('DOMContentLoaded', function(){
 
   socket.on('logged', function(rooms){
     rooms.forEach(function(room){
-      console.log(room.users);
       $('h2').html('Bienvenue dans l\'' + room.name);
-      // $('h2').css('margin-bottom' , '50px');
       $('h3').html('Manche : ' + tour);
-      // $('h3').css({'margin-bottom' , '80px'})
-      // console.log(room.name);
       $('#formulaireConnection').hide();
       $('#avatar').hide();
       $('#arene').hide();
@@ -112,8 +102,6 @@ window.addEventListener('DOMContentLoaded', function(){
       $('#imgArene').html('<img src="./sources/images/image' + room.name.replace(' ','') + '.jpg" alt="' + room + '">');
       $('#imgArene').show();
       for(var i in room.users){
-        console.log(room.users[i].id);
-        console.log(room.users[i]);
         if(room.users[i].id == socket.id){
           $('#joueur').html('<p>' + room.users[i].pseudo + '</p><img src="./sources/images/' + room.users[i].avatar +'.jpg" alt="' + room.users[i].avatar + '"><p>Score : ' + room.users[i].score + '</p>');
         }
@@ -125,7 +113,6 @@ window.addEventListener('DOMContentLoaded', function(){
       }
       if(room.info.length>1){
         for(var i in room.users){
-          console.log(room.roomInfo);
           if(room.users[i].id !== socket.id){
             $('#adversaire').html('<p>' + room.users[i].pseudo + '</p><img src="./sources/images/' + room.users[i].avatar +'.jpg" alt="' + room.users[i].avatar + '"><p>Score : ' + room.users[i].score + '</p>');
             $('#adversaire').show();
@@ -138,15 +125,13 @@ window.addEventListener('DOMContentLoaded', function(){
   });
 
   socket.on('tableau', function(data){
-    console.log(JSON.stringify(data));
     data = data;
     var i = 1;
     $('#lienScore').show();
     $('#tableauScore').html('<table class="table table-striped"><thead><tr><th>#</th><th>Pseudo</th><th>Meilleur Score</th><th>Score cumulé</th><th>Temps</th></tr></thead><tbody></tbody><table>');
     var html = $("#tableauScore .table>tbody").html();
     data.forEach(function(users){
-      console.log(users.pseudo);
-      console.log(html);
+
       if(users.temps){
         html += '<tr><th>'+ i +'</th><th>'+ users.pseudo +'</th><th>'+ users.scoreMeilleurePartie +'</th><th>'+ users.scoreCumule +'</th><th>'+ users.temps +'</th></tr>';
       } else {
@@ -154,23 +139,18 @@ window.addEventListener('DOMContentLoaded', function(){
       }
       i++;
     });
-    console.log(html);
     $('#tableauScore .table>tbody').html(html);
-    console.log($('#tableauScore').html());
   });
 
   $('#lienScore').hover(function (){
     $('#tableauScore').show();
-    console.log('mouseEnter');
   }, function(){
     $('#tableauScore').hide();
-    console.log('mouseLeave');
   });
 
   socket.on('loggedNewUser', function(rooms){
     rooms.forEach(function(room){
       for(var i in room.users){
-        console.log(room.users[i]);
         if(room.users[i].id !== socket.id){
           $('#adversaire').html('<p>' + room.users[i].pseudo + '</p><img src="./sources/images/' + room.users[i].avatar +'.jpg" alt="' + room.users[i].avatar + '"><p>Score : ' + room.users[i].score + '</p>');
           $('#adversaire').show();
@@ -205,10 +185,8 @@ window.addEventListener('DOMContentLoaded', function(){
     submitted = false;
     $('#choixJoueur img').hover(function(){
       $(this).css({'width' : '120px', 'height' : '120px'});
-      console.log($(this).width);
     },function(){
       $(this).css({'width' : '100px', 'height' : '100px'});
-      console.log($(this).width);
     })
     $('#choixJoueur img').on('click', function(){
       if(!submitted){
@@ -317,7 +295,6 @@ window.addEventListener('DOMContentLoaded', function(){
     $('h3').html('Manche : ' + tour);
     console.log(tour);
     if(tour >=tourMax){
-      // console.log(timestamp1);
       var temps = endGame(choice,timestamp1);
       console.log(Object.keys(choice));
       console.log(choice,timestamp1);
@@ -363,17 +340,14 @@ window.addEventListener('DOMContentLoaded', function(){
     $('h3').html('Manche : ' + tour);
     console.log(tour);
     if(tour >=tourMax){
-      console.log(timestamp1);
       var temps = endGame(choice,timestamp1);
-      console.log(Object.keys(choice))
-      console.log(choice);
+      console.log(Object.keys(choice));
       socket.emit('scoreFinal', choice, temps);
     }
   });
 
   socket.on('userLeaveRoom',function(data){
     console.log('user Leave');
-    console.log(data.users);
     for(var i in data.users){
       if(data.users[i].id !== socket.id) {
         $('#info').show();
