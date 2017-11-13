@@ -100,7 +100,7 @@ window.addEventListener('DOMContentLoaded', function(){
   socket.on('logged', function(rooms){
     rooms.forEach(function(room){
       console.log(room.users);
-      $('h2').html('Bienvenues dans l\'' + room.name);
+      $('h2').html('Bienvenue dans l\'' + room.name);
       $('h2').css('margin-bottom' , '50px');
       // console.log(room.name);
       $('#formulaireConnection').hide();
