@@ -271,6 +271,7 @@ window.addEventListener('DOMContentLoaded', function(){
       }
     });
     tour++;
+    $('h3').html('Manche : ' + tour);
     console.log(tour);
     if(tour >= tourMax){
       var temps = endGame(choice);
@@ -313,6 +314,7 @@ window.addEventListener('DOMContentLoaded', function(){
       }
     })
     tour++;
+    $('h3').html('Manche : ' + tour);
     console.log(tour);
     if(tour >=tourMax){
       // console.log(timestamp1);
@@ -358,6 +360,7 @@ window.addEventListener('DOMContentLoaded', function(){
       $('#adversaire p:last-child').html('<p>' + scoreAdversaire + ' points</p>');
     })
     tour++;
+    $('h3').html('Manche : ' + tour);
     console.log(tour);
     if(tour >=tourMax){
       console.log(timestamp1);
