@@ -411,7 +411,7 @@ function endGame(choice,timestamp1){
 
   var cent = Math.floor(temps / 10) % 100;
   var sec = Math.floor(temps /1000) % 60;
-  var min = Math.floor(temps /36000) %60;
+  var min = Math.floor(temps /60000) %60;
 
   var tempsManuscrit = min + 'min(s) ' + sec + 'sec(s) et ' + cent + 'centièmes';
   var tempsDigit = min +':' + sec + ':' + cent;
