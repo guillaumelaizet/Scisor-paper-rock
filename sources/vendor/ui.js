@@ -101,7 +101,7 @@ window.addEventListener('DOMContentLoaded', function(){
     rooms.forEach(function(room){
       console.log(room.users);
       $('h2').html('Bienvenue dans l\'' + room.name);
-      $('h2').css('margin-bottom' , '50px');
+      // $('h2').css('margin-bottom' , '50px');
       $('h3').html('Manche : ' + tour);
       // $('h3').css({'margin-bottom' , '80px'})
       // console.log(room.name);
